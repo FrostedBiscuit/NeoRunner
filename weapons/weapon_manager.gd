@@ -28,7 +28,8 @@ func set_player_weapon(weapon_slug):
 func _load_weapons():
 	var result = {
 		"test_pistol": preload("res://weapons/firearm/test_pistol/test_pistol.tscn"),
-		"test_smg": preload("res://weapons/firearm/test_smg/test_smg.tscn")
+		"test_smg": preload("res://weapons/firearm/test_smg/test_smg.tscn"),
+		"test_shotgun": preload("res://weapons/firearm/test_shotgun/test_shotgun.tscn")
 	}
 
 	return result

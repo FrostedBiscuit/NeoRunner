@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/firearm/test_smg/test_smg.gd"
 }, {
+"base": "Firearm",
+"class": "TestShotgun",
+"language": "GDScript",
+"path": "res://weapons/firearm/test_shotgun/test_shotgun.gd"
+}, {
 "base": "Spatial",
 "class": "Weapon",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Firearm": "",
 "TestPistol": "",
 "TestSMG": "",
+"TestShotgun": "",
 "Weapon": ""
 }
 

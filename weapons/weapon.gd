@@ -24,7 +24,6 @@ func is_equip_finished():
 	return is_equipped
 
 func on_animation_finish(anim_name):
-	print("Animation %s stopped." % anim_name)
 	match anim_name:
 		"Equip":
 			is_equipped = true

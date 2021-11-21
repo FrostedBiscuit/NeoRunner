@@ -116,7 +116,9 @@ func _process_weapon_input():
 	if Input.is_action_just_pressed("ui_focus_next"):
 		if weapon_handler.weapons["Primary"].weapon_slug == "test_pistol":
 			WeaponManager.set_player_weapon("test_smg")
-		else:
+		elif weapon_handler.weapons["Primary"].weapon_slug == "test_smg":
+			WeaponManager.set_player_weapon("test_shotgun")
+		elif weapon_handler.weapons["Primary"].weapon_slug == "test_shotgun":
 			WeaponManager.set_player_weapon("test_pistol")
 
 # Register player instance and weapon handler with WeaponManager

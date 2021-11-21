@@ -1,0 +1,191 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://weapons/firearm/test_shotgun/test_shotgun.gd" type="Script" id=1]
+[ext_resource path="res://weapons/vfx/test_shot_decal.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.690196, 0.486275, 0.309804, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.164706, 0.203922, 0.223529, 1 )
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.690196, 0.486275, 0.309804, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Equip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0.4 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Root:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Fire"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 18.907, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Root:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.181, 0.768 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Reload"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 9.42, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Root:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.12927, 0.344734 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Root/Mesh/Pump:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -90, 0, 0 ), Vector3( -90, 0, 0 ), Vector3( -90, 0, 0 ), Vector3( -90, 0, 0 ), Vector3( -90, 0, 0 ), Vector3( -90, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Root/Mesh/Pump:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0105601, -0.573503 ), Vector3( 0, -0.0105601, -0.573503 ), Vector3( 0, -0.01056, -0.428886 ), Vector3( 0, -0.01056, -0.428886 ), Vector3( 0, -0.011, -0.574 ), Vector3( 0, -0.011, -0.574 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "reload"
+} ]
+}
+
+[node name="TestShotgun" type="Spatial"]
+script = ExtResource( 1 )
+weapon_name = "Test Shotgun"
+weapon_slug = "test_shotgun"
+firerate = 1.5
+shot_decal = ExtResource( 2 )
+
+[node name="Root" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.993999, -0.109387, 0, 0.109387, 0.993999, 0, 0.08618, 0.229823 )
+
+[node name="Mesh" type="Spatial" parent="Root"]
+
+[node name="Stock" type="MeshInstance" parent="Root/Mesh"]
+transform = Transform( 0.061, 0, 0, 0, 0.0965926, -0.0776457, 0, 0.0258819, 0.289778, 0, -0.145363, 0.496266 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MainReciever" type="MeshInstance" parent="Root/Mesh"]
+transform = Transform( 0.06, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="Barrel" type="MeshInstance" parent="Root/Mesh"]
+transform = Transform( 0.04, 0, 0, 0, -2.84124e-08, 0.04, 0, -0.65, -1.74846e-09, 0, 0.061, -0.923 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 3 )
+
+[node name="Pump" type="MeshInstance" parent="Root/Mesh"]
+transform = Transform( 0.04, 0, 0, 0, -1.20747e-08, 0.04, 0, -0.276238, -1.74846e-09, 0, -0.01056, -0.428886 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Equip = SubResource( 6 )
+anims/Fire = SubResource( 8 )
+anims/Reload = SubResource( 10 )

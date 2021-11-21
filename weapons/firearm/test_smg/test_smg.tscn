@@ -120,7 +120,7 @@ shot_decal = ExtResource( 2 )
 [node name="Root" type="Spatial" parent="."]
 
 [node name="Anchor" type="Spatial" parent="Root"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1 )
 
 [node name="Mesh" type="Spatial" parent="Root/Anchor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
