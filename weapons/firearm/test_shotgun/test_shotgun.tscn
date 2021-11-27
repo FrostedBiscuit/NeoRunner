@@ -161,7 +161,7 @@ firerate = 1.5
 shot_decal = ExtResource( 2 )
 
 [node name="Root" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.993999, -0.109387, 0, 0.109387, 0.993999, 0, 0.08618, 0.229823 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Mesh" type="Spatial" parent="Root"]
 

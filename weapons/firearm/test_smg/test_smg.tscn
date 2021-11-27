@@ -120,23 +120,23 @@ shot_decal = ExtResource( 2 )
 [node name="Root" type="Spatial" parent="."]
 
 [node name="Anchor" type="Spatial" parent="Root"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 
 [node name="Mesh" type="Spatial" parent="Root/Anchor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 
 [node name="MainReceiver" type="MeshInstance" parent="Root/Anchor/Mesh"]
-transform = Transform( 0.065, 0, 0, 0, 0.08, 0, 0, 0, 0.42, 0, 0.110931, -0.20008 )
+transform = Transform( 0.065, 0, 0, 0, 0.08, 0, 0, 0, 0.42, 0, 0.110931, -0.055832 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Mag" type="MeshInstance" parent="Root/Anchor/Mesh"]
-transform = Transform( 0.0575724, 0, 0, 0, 0.0170738, 0.189971, 0, -0.0781568, 0.0415002, 0, -0.104378, -0.29075 )
+transform = Transform( 0.0575724, 0, 0, 0, 0.0170738, 0.189971, 0, -0.0781568, 0.0415002, 0, -0.104378, -0.146502 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Grip" type="MeshInstance" parent="Root/Anchor/Mesh"]
-transform = Transform( 0.0429148, 0, 0, 0, 0.0102697, -0.0892322, 0, 0.0326648, 0.0280544, 0, -0.039, 0.139 )
+transform = Transform( 0.0429148, 0, 0, 0, 0.0102697, -0.0892322, 0, 0.0326648, 0.0280544, 0, -0.039, 0.283248 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 

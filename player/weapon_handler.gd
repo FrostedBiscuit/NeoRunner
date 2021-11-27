@@ -5,7 +5,7 @@ var weapons = {}
 func _ready():
 
 	# Add player as exception to raycast
-	get_parent().get_node("Camera/RayCast").add_exception(owner)
+	get_parent().get_node("Camera/AttackRayCast").add_exception(owner)
 
 	weapons = {
 		"Primary": $Hand.get_child(0)
@@ -49,6 +49,12 @@ func reload():
 
 	weapons["Primary"].start_reload()
 
+func is_weapon_equipping():
+	if not weapons["Primary"]:
+		return false
+
+	return not weapons["Primary"].is_equipped
+
 func _spawn_weapon(weapon, pos = null):
 	# Check if weapon name is valid
 	if not weapon:
@@ -70,4 +76,4 @@ func _weapon_setup(w):
 	w.weapon_manager = self
 	w.player = owner
 	w.visible = false
-	w.ray = get_parent().get_node("Camera/RayCast")
+	w.ray = get_parent().get_node("Camera/AttackRayCast")

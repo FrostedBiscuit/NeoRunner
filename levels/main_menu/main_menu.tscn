@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/retrochips/retrochips.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/rockstar/rockstar.tres" type="DynamicFont" id=2]
+[ext_resource path="res://levels/main_menu/main_menu.gd" type="Script" id=3]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Control" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -225.0
+margin_bottom = 225.0
+
+[node name="Title" type="Label" parent="Container"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -237.0
+margin_right = 238.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 0.917647, 0, 0.996078, 1 )
+custom_colors/font_outline_modulate = Color( 0.521569, 0, 0.541176, 1 )
+custom_colors/font_color_shadow = Color( 0.439216, 0, 0.592157, 1 )
+custom_constants/shadow_offset_x = -11
+custom_constants/shadow_offset_y = -9
+custom_fonts/font = ExtResource( 1 )
+text = "NeoRunner"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -81.0
+margin_right = 250.0
+margin_bottom = -41.0
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShootingRangeButton" type="Button" parent="Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -11.0001
+margin_right = 250.0
+margin_bottom = 28.9999
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+text = "SHOOTING RANGE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="Button" parent="Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = 58.9999
+margin_right = 250.0
+margin_bottom = 98.9999
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "SETTINGS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = 129.0
+margin_right = 250.0
+margin_bottom = 169.0
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Container/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Container/ShootingRangeButton" to="." method="_on_ShootingRangeButton_pressed"]
+[connection signal="pressed" from="Container/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="Container/QuitButton" to="." method="_on_QuitButton_pressed"]

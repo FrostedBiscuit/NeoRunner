@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
+[ext_resource path="res://player/interaction_handler.gd" type="Script" id=2]
 [ext_resource path="res://weapons/firearm/test_pistol/test_pistol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/hud/hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/weapon_handler.gd" type="Script" id=5]
@@ -16,24 +17,33 @@ collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.9, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.9, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 2 )
 
 [node name="CameraBase" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0 )
 
 [node name="CameraBoom" type="Spatial" parent="CameraBase"]
 
 [node name="Camera" type="Camera" parent="CameraBase/CameraBoom"]
 
-[node name="RayCast" type="RayCast" parent="CameraBase/CameraBoom/Camera"]
+[node name="AttackRayCast" type="RayCast" parent="CameraBase/CameraBoom/Camera"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 cast_to = Vector3( 0, -100, 0 )
+
+[node name="InteractRayCast" type="RayCast" parent="CameraBase/CameraBoom/Camera"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, -5, 0 )
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color( 0.898039, 0.101961, 0.886275, 1 )
+debug_shape_thickness = 3.0
 
 [node name="Weapons" type="Spatial" parent="CameraBase/CameraBoom"]
 script = ExtResource( 5 )
@@ -42,8 +52,12 @@ script = ExtResource( 5 )
 
 [node name="TestPistol" parent="CameraBase/CameraBoom/Weapons/Hand" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346, -0.417, -0.583 )
+is_equipped = true
 
 [node name="WeaponPosition" type="Spatial" parent="CameraBase/CameraBoom/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346, -0.417, -0.583 )
+
+[node name="Interactor" type="Spatial" parent="CameraBase/CameraBoom"]
+script = ExtResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]

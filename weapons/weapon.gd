@@ -8,7 +8,7 @@ var animation_player
 var ray = null
 
 # Weapon states
-var is_equipped = false
+export var is_equipped = false
 
 # Weapon parameters
 export var weapon_name = "Weapon"

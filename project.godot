@@ -33,24 +33,31 @@ _global_script_classes=[ {
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://weapons/weapon.gd"
+}, {
+"base": "Spatial",
+"class": "WeaponProp",
+"language": "GDScript",
+"path": "res://props/weapon_props/weapon_prop.gd"
 } ]
 _global_script_class_icons={
 "Firearm": "",
 "TestPistol": "",
 "TestSMG": "",
 "TestShotgun": "",
-"Weapon": ""
+"Weapon": "",
+"WeaponProp": ""
 }
 
 [application]
 
 config/name="NeoRunner"
-run/main_scene="res://levels/shooting_range/shooting_range.tscn"
+run/main_scene="res://levels/main_menu/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 WeaponManager="*res://weapons/weapon_manager.gd"
+LevelSwitcher="*res://levels/level_switcher.gd"
 
 [display]
 
@@ -111,6 +118,12 @@ fire={
 reload={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":69,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
  ]
 }

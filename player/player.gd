@@ -20,7 +20,6 @@ const AIR_ACCELERATION = 9
 var jump_counter = 0
 
 func _ready():
-	print("Player ready")
 	# Register player with WeaponManager
 	_regsiter_player()
 
@@ -111,15 +110,6 @@ func _process_weapon_input():
 
 	if Input.is_action_pressed("reload"):
 		weapon_handler.reload()
-
-	# Temporary code to test set_weapon function
-	if Input.is_action_just_pressed("ui_focus_next"):
-		if weapon_handler.weapons["Primary"].weapon_slug == "test_pistol":
-			WeaponManager.set_player_weapon("test_smg")
-		elif weapon_handler.weapons["Primary"].weapon_slug == "test_smg":
-			WeaponManager.set_player_weapon("test_shotgun")
-		elif weapon_handler.weapons["Primary"].weapon_slug == "test_shotgun":
-			WeaponManager.set_player_weapon("test_pistol")
 
 # Register player instance and weapon handler with WeaponManager
 func _regsiter_player():

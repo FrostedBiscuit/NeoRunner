@@ -76,9 +76,7 @@ func _spawn_shot_decal(position, rotation):
 	var scene_root = root.get_child(root.get_child_count() - 1)
 
 	decal.transform.origin = position
-	decal.rotate_x(rotation.x)
-	decal.rotate_y(rotation.y)
-	decal.rotate_z(rotation.z)
+	decal.rotation_degrees = rotation
 	# decal.global_transform.rotation_degrees = rotation
 
 	scene_root.add_child(decal)
