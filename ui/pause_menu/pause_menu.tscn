@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/retrochips/retrochips.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/rockstar/rockstar.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/pause_menu/pause_menu.gd" type="Script" id=3]
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_right = 200.0
+custom_constants/separation = 35
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Container"]
+margin_top = 168.0
+margin_right = 400.0
+margin_bottom = 263.0
+custom_colors/font_color = Color( 0.917647, 0, 0.996078, 1 )
+custom_colors/font_outline_modulate = Color( 0.521569, 0, 0.541176, 1 )
+custom_colors/font_color_shadow = Color( 0.439216, 0, 0.592157, 1 )
+custom_constants/shadow_offset_x = -11
+custom_constants/shadow_offset_y = -9
+custom_fonts/font = ExtResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="Container"]
+margin_top = 298.0
+margin_right = 400.0
+margin_bottom = 335.0
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+text = "RESUME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="Button" parent="Container"]
+margin_top = 370.0
+margin_right = 400.0
+margin_bottom = 407.0
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "SETTINGS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitToMenuButton" type="Button" parent="Container"]
+margin_top = 442.0
+margin_right = 400.0
+margin_bottom = 479.0
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT TO MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="Container"]
+margin_top = 514.0
+margin_right = 400.0
+margin_bottom = 551.0
+custom_constants/hseparation = 1
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Container/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Container/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="Container/QuitToMenuButton" to="." method="_on_QuitToMenuButton_pressed"]
+[connection signal="pressed" from="Container/QuitButton" to="." method="_on_QuitButton_pressed"]

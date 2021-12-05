@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/interaction_handler.gd" type="Script" id=2]
 [ext_resource path="res://weapons/firearm/test_pistol/test_pistol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/hud/hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/weapon_handler.gd" type="Script" id=5]
+[ext_resource path="res://ui/pause_menu/pause_menu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.5
@@ -61,3 +62,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346, -0.417, -0.583 )
 script = ExtResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 6 )]
+visible = false

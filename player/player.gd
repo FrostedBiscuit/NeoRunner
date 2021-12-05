@@ -4,6 +4,7 @@ const MOUSE_SENSITIVITY = 0.225
 
 onready var camera = $CameraBase
 onready var weapon_handler = $CameraBase/CameraBoom/Weapons
+onready var pause_menu = $PauseMenu
 
 # Movement values
 var velocity = Vector3.ZERO
@@ -27,10 +28,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(_delta):
-	# If ESC is pressed, handle mouse lock state
-	if Input.is_action_just_pressed("ui_cancel"):
-		_handle_mouse_lock()
-	
 	_process_weapon_input()
 
 func _physics_process(delta):
@@ -39,6 +36,11 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		_process_mouse_movement(event)
+
+	# If ESC is pressed, show/hide pause menu
+	if Input.is_action_just_pressed("ui_cancel"):
+		_handle_pause_menu()
+	
 
 # Contains all functionality related to looking around
 func _process_mouse_movement(event):
@@ -93,13 +95,15 @@ func _process_movement_input(delta):
 	velocity.z = current_vel.z
 	velocity = move_and_slide(velocity, Vector3.UP, true, 4, deg2rad(45))
 
-# Handles locking and unlocking mouse cursor (probably debug only)
-func _handle_mouse_lock():
+# Handles pause menu
+func _handle_pause_menu():
 	# Change mouse mode depending on current state
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		_show_pause_menu()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		_hide_pause_menu()
 
 # Handles all weapon related input (firing/reloading)
 func _process_weapon_input():
@@ -115,3 +119,13 @@ func _process_weapon_input():
 func _regsiter_player():
 	WeaponManager.player = self
 	WeaponManager.player_weapon_handler = weapon_handler
+
+func _show_pause_menu():
+	pause_menu.show()
+	set_process(false)
+	set_physics_process(false)
+
+func _hide_pause_menu():
+	pause_menu.hide()
+	set_process(true)
+	set_physics_process(true)

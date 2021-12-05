@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_PlayButton_pressed():
-    LevelSwitcher.go_to_1st_stage()
+    LevelSwitcher.go_to_main_level()
     
 func _on_ShootingRangeButton_pressed():
     LevelSwitcher.go_to_shooting_range()
