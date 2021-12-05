@@ -58,11 +58,6 @@ _global_script_classes=[ {
 "class": "WeaponProp",
 "language": "GDScript",
 "path": "res://props/weapon_props/weapon_prop.gd"
-}, {
-"base": "Resource",
-"class": "WeaponResource",
-"language": "GDScript",
-"path": "res://weapons/weapon_resource.gd"
 } ]
 _global_script_class_icons={
 "Firearm": "",
@@ -74,8 +69,7 @@ _global_script_class_icons={
 "UpgradeBase": "",
 "Weapon": "",
 "WeaponPickup": "",
-"WeaponProp": "",
-"WeaponResource": ""
+"WeaponProp": ""
 }
 
 [application]
