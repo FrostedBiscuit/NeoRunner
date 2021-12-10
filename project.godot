@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://upgrades/upgrade_base.gd"
 }, {
+"base": "Reference",
+"class": "UpgradeTypes",
+"language": "GDScript",
+"path": "res://upgrades/upgrades/upgrade_types.gd"
+}, {
 "base": "Spatial",
 "class": "Weapon",
 "language": "GDScript",
@@ -67,6 +72,7 @@ _global_script_class_icons={
 "TestShotgun": "",
 "Upgrade": "",
 "UpgradeBase": "",
+"UpgradeTypes": "",
 "Weapon": "",
 "WeaponPickup": "",
 "WeaponProp": ""

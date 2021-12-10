@@ -7,9 +7,8 @@ var is_reloading = false
 
 # Weapon parameters
 export var magazine_size = 10
-onready var current_ammo = magazine_size
+onready var current_ammo = _get_magazine_size()
 
-export var damage = 10
 export var firerate = 1.0
 export var reload_speed = 1.0
 
@@ -44,7 +43,7 @@ func stop_shooting():
 	animation_player.get_animation("Fire").loop = false
 
 func shoot():
-	current_ammo = clamp(current_ammo - 1, 0, magazine_size)
+	current_ammo = clamp(current_ammo - 1, 0, _get_magazine_size())
 
 	ray.force_raycast_update()
 
@@ -57,18 +56,18 @@ func shoot():
 func start_reload():
 	if _can_reload():
 		is_firing = false
-		animation_player.play("Reload", -1, reload_speed)
+		animation_player.play("Reload", -1, _get_reload_speed())
 		is_reloading = true
 	
 func reload():
-	current_ammo = magazine_size
+	current_ammo = _get_magazine_size()
 
 # Util
 func _can_fire():
 	return current_ammo > 0 and not is_reloading and not is_firing
 
 func _can_reload():
-	return current_ammo < magazine_size and not is_reloading and not is_firing
+	return current_ammo < _get_magazine_size() and not is_reloading and not is_firing
 
 func _spawn_shot_decal(position, rotation):
 	var decal = shot_decal.instance()
@@ -80,3 +79,14 @@ func _spawn_shot_decal(position, rotation):
 	# decal.global_transform.rotation_degrees = rotation
 
 	scene_root.add_child(decal)
+
+func _get_reload_speed():
+	var upgrade_amt = UpgradeManager.player_upgrade_stats[UpgradeTypes.Type.RELOAD_SPEED]
+	print(upgrade_amt)
+	var result = reload_speed * (1 + upgrade_amt) if upgrade_amt > 0 else reload_speed
+	return result
+
+func _get_magazine_size():
+	var upgrade_amt = UpgradeManager.player_upgrade_stats[UpgradeTypes.Type.AMMO]
+	var result = magazine_size * (1 + upgrade_amt) if upgrade_amt > 0 else magazine_size
+	return int(result)

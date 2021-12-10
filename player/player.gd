@@ -84,7 +84,7 @@ func _process_movement_input(delta):
 
 	# Handle sprinting
 	var speed = SPRINT_SPEED if Input.is_action_pressed("sprint") else SPEED
-	var target_vel = dir * speed
+	var target_vel = dir * _get_movement_speed(speed)
 
 	# Handle smoothing movement
 	var acceleration = ACCELERATION if is_on_floor() else AIR_ACCELERATION
@@ -129,3 +129,8 @@ func _hide_pause_menu():
 	pause_menu.hide()
 	set_process(true)
 	set_physics_process(true)
+
+func _get_movement_speed(initial):
+	var upgrade_amt = UpgradeManager.player_upgrade_stats[UpgradeTypes.Type.MOVEMENT_SPEED]
+	var result = initial * (1 + upgrade_amt) if upgrade_amt > 0 else initial
+	return result

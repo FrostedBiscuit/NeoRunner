@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://upgrades/weapon_changers/weapon_pickup.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+upgrade_name = "Test Shotgun"
+weapon_slug = "test_shotgun"

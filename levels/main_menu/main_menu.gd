@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+    UpgradeManager.reset_player_upgrades()
 
 func _on_PlayButton_pressed():
     LevelSwitcher.go_to_main_level()
