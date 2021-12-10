@@ -89,6 +89,7 @@ config/icon="res://icon.png"
 WeaponManager="*res://weapons/weapon_manager.gd"
 LevelSwitcher="*res://levels/level_switcher.gd"
 UpgradeManager="*res://upgrades/upgrade_manager.gd"
+GameManager="*res://levels/game_manager.gd"
 
 [display]
 

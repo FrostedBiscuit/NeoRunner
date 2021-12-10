@@ -20,7 +20,6 @@ func _ready():
 func _on_UpgradeButton1_pressed():
 	_button_pressed(0)
 
-
 func _on_UpgradeButton2_pressed():
 	_button_pressed(1)
 
@@ -30,9 +29,9 @@ func _on_UpgradeButton3_pressed():
 # Util
 func _button_pressed(upgrade_nr):
 	_apply_upgrade(upgrade_nr)
-	yield(get_tree().create_timer(3.0), "timeout")
+	yield(get_tree().create_timer(1.0), "timeout")
 
-	LevelSwitcher.go_to_main_level()
+	GameManager.next_level()
 
 func _disable_all_buttons():
 	upgrade_btn_1.disabled = true

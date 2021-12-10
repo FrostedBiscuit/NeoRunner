@@ -30,6 +30,10 @@ func _generate_level():
 	if not level_end_cell:
 		push_error("No level_end_cell scene set!")
 		return
+
+	print("Current stage: %s" % GameManager.get_current_stage())
+	print("Current stage progress: %s" % GameManager.get_current_stage_progress())
+	print("Current progress: %s" % GameManager.get_overall_progress())
 	
 	var map = map_template.instance()
 	var tilemap = map.get_tilemap()

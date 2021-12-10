@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/rockstar/rockstar.tres" type="DynamicFont" id=1]
+[ext_resource path="res://levels/end_game_level/end_game_level.gd" type="Script" id=2]
+
+[node name="EndGameLevel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Container"]
+margin_top = 324.0
+margin_right = 1280.0
+margin_bottom = 355.0
+custom_fonts/font = ExtResource( 1 )
+text = "GJ"
+align = 1
+valign = 1
+
+[node name="MainMenuButton" type="Button" parent="Container"]
+margin_top = 359.0
+margin_right = 1280.0
+margin_bottom = 396.0
+custom_fonts/font = ExtResource( 1 )
+text = "MAIN MENU"
+
+[connection signal="pressed" from="Container/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
