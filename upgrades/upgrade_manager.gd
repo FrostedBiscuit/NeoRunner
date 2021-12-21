@@ -8,6 +8,7 @@ const PLAYER_UPGRADE_STATS_BASE = {
     UpgradeTypes.Type.RELOAD_SPEED: 0,
     UpgradeTypes.Type.DAMAGE: 0
 }
+const UPGRADES_FOLDER = "res://upgrades/resources/"
 # Player reference
 var player = null
 var player_upgrade_handler = null
@@ -19,7 +20,7 @@ var player_upgrades = []
 var player_upgrade_stats = PLAYER_UPGRADE_STATS_BASE
 
 func _ready():
-    _load_upgrades()
+    _load_upgrades_from_dir(UPGRADES_FOLDER)
     pass
 
 func get_3_random_upgrades():
@@ -43,21 +44,23 @@ func reset_player_upgrades():
     player_upgrade_stats = PLAYER_UPGRADE_STATS_BASE
 
 # Util
-func _load_upgrades():
-    var res_dir = Directory.new()
-    var res_dir_path = "res://upgrades/resources/"
+func _load_upgrades_from_dir(path):
+    var curr_dir = Directory.new()
 
-    # Check if we can open the directory
-    if res_dir.open(res_dir_path) == OK:
-        # Begin reading files
-        res_dir.list_dir_begin()
-        var res_file = res_dir.get_next()
-        # Iterate through all files in directory
-        while res_file != "":
-            if not res_dir.current_is_dir():
-                # Load resource file
-                var res_file_dir = res_dir_path + res_file
-                var upgrade = load(res_file_dir)
-                upgrades.append(upgrade)
-            res_file = res_dir.get_next()
-        res_dir.list_dir_end()
+    if curr_dir.open(path) == OK:
+        # Start reading files (skip ., .. and invisible files)
+        curr_dir.list_dir_begin(true, true)
+        var file = curr_dir.get_next()
+        # Iterate
+        while file != "":
+            if curr_dir.current_is_dir():
+                var new_dir = path + file + "/"
+                _load_upgrades_from_dir(new_dir)
+            else:
+                _load_upgrade(path + file)
+            file = curr_dir.get_next()
+            
+func _load_upgrade(path):
+    print("Loading upgrade: %s" % path)
+    var upgrade = load(path)
+    upgrades.append(upgrade)

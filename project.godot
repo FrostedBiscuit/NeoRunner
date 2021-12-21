@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "UpgradeBase",
 "class": "WeaponPickup",
 "language": "GDScript",
-"path": "res://upgrades/weapon_changers/weapon_pickup.gd"
+"path": "res://upgrades/weapon_pickups/weapon_pickup.gd"
 }, {
 "base": "Spatial",
 "class": "WeaponProp",
