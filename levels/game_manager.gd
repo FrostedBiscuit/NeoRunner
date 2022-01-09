@@ -1,6 +1,6 @@
 extends Node
 
-const STAGES = 1
+const STAGES = 3
 const LEVELS_PER_STAGE = 3
 const ALL_LEVELS = STAGES * LEVELS_PER_STAGE
 

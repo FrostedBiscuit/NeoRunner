@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://upgrades/upgrades/upgrade.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+upgrade_name = "+ 25% Faster reload"
+required_progress = 0.55
+type = 3
+amount = 0.25

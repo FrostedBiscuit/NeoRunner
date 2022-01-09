@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource( 1 )
 upgrade_name = "Test SMG"
+required_progress = 0.42
 weapon_slug = "test_smg"

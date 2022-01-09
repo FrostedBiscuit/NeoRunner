@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/shooting_range/materials/concrete.tres" type="Material" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/textures/shooting_range/pegboard.jpg" type="Texture" id=9]
 [ext_resource path="res://weapons/firearm/test_smg/test_smg.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/firearm/test_shotgun/test_shotgun.tscn" type="PackedScene" id=11]
+[ext_resource path="res://weapons/firearm/gluck_18/gluck_18.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_world_triplanar = true
@@ -314,6 +315,10 @@ weapon = ExtResource( 10 )
 [node name="TestShotgunProp" parent="Base/WeaponRack" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.75, -1, 0.25 )
 weapon = ExtResource( 11 )
+
+[node name="Gluck18Prop" parent="Base/WeaponRack" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.75, -1, 0.25 )
+weapon = ExtResource( 12 )
 
 [node name="Board" type="CSGBox" parent="Base/WeaponRack"]
 transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0, 0 )

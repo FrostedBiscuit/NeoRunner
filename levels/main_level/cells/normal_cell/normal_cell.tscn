@@ -17,29 +17,25 @@ depth = 4.0
 material = ExtResource( 2 )
 
 [node name="FrontWall" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.05, 0.005, 1.5, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.05, 0.005, 1, -2 )
 use_collision = true
 width = 4.0
-height = 3.0
 material = SubResource( 1 )
 
 [node name="LeftWall" type="CSGBox" parent="."]
-transform = Transform( -4.37114e-08, 0, 0.05, 0, 1, 0, -1, 0, -2.18557e-09, -2, 1.5, 4.37114e-08 )
+transform = Transform( -4.37114e-08, 0, 0.05, 0, 1, 0, -1, 0, -2.18557e-09, -2, 1, 4.37114e-08 )
 use_collision = true
 width = 4.0
-height = 3.0
 material = SubResource( 1 )
 
 [node name="RightWall" type="CSGBox" parent="."]
-transform = Transform( -4.37114e-08, 0, -0.05, 0, 1, 0, 1, 0, -2.18557e-09, 2, 1.5, 4.37114e-08 )
+transform = Transform( -4.37114e-08, 0, -0.05, 0, 1, 0, 1, 0, -2.18557e-09, 2, 1, 4.37114e-08 )
 use_collision = true
 width = 4.0
-height = 3.0
 material = SubResource( 1 )
 
 [node name="BackWall" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 1.5, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 1, 2 )
 use_collision = true
 width = 4.0
-height = 3.0
 material = SubResource( 1 )

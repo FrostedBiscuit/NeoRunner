@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 
 const MOUSE_SENSITIVITY = 0.225
 

@@ -14,10 +14,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/firearm/firearm.gd"
 }, {
+"base": "Firearm",
+"class": "Gluck18",
+"language": "GDScript",
+"path": "res://weapons/firearm/gluck_18/gluck_18.gd"
+}, {
+"base": "Node",
+"class": "MainLevel",
+"language": "GDScript",
+"path": "res://levels/main_level/main_level.gd"
+}, {
 "base": "Spatial",
 "class": "NormalCell",
 "language": "GDScript",
 "path": "res://levels/main_level/cells/normal_cell/normal_cell.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/player.gd"
 }, {
 "base": "Firearm",
 "class": "TestPistol",
@@ -66,7 +81,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Firearm": "",
+"Gluck18": "",
+"MainLevel": "",
 "NormalCell": "",
+"Player": "",
 "TestPistol": "",
 "TestSMG": "",
 "TestShotgun": "",
@@ -90,6 +108,7 @@ WeaponManager="*res://weapons/weapon_manager.gd"
 LevelSwitcher="*res://levels/level_switcher.gd"
 UpgradeManager="*res://upgrades/upgrade_manager.gd"
 GameManager="*res://levels/game_manager.gd"
+LevelTemplateGenerator="*res://levels/main_level/level_template_generator.gd"
 
 [display]
 

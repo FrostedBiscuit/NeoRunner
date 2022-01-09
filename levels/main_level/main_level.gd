@@ -1,6 +1,13 @@
 extends Node
+class_name MainLevel
 
 const GRID_SIZE = 4
+
+# Tile ids
+const AIR_TILE = 0
+const GROUND_TILE = 1
+const SPAWN_TILE = 2
+const END_TILE = 3
 
 # Player scene
 export(PackedScene) var player = null
@@ -9,8 +16,6 @@ export(PackedScene) var player = null
 export(PackedScene) var normal_cell = null
 # Level end cell scene
 export(PackedScene) var level_end_cell = null
-# Map template
-export(PackedScene) var map_template = null
 
 var current_cells = []
 
@@ -19,10 +24,6 @@ func _ready():
 	_spawn_player()
 
 func _generate_level():
-	if not map_template:
-		push_error("No map template set!")
-		return
-
 	if not normal_cell:
 		push_error("No normal_cell scene set!")
 		return
@@ -31,33 +32,32 @@ func _generate_level():
 		push_error("No level_end_cell scene set!")
 		return
 
-	print("Current stage: %s" % GameManager.get_current_stage())
-	print("Current stage progress: %s" % GameManager.get_current_stage_progress())
-	print("Current progress: %s" % GameManager.get_overall_progress())
-	
-	var map = map_template.instance()
-	var tilemap = map.get_tilemap()
-	var used_tiles = tilemap.get_used_cells()
-	var player_spawn_tile = tilemap.get_used_cells_by_id(0)[0]
-	var level_end_tile = tilemap.get_used_cells_by_id(2)[0]
-	tilemap.free()
+	var map = LevelTemplateGenerator.generate_level_template()
 
-	_reset_player_spawn(player_spawn_tile)
+	for y in len(map):
+		for x in len(map[y]):
+			var tile = map[y][x]
+			var new_cell
 
-	for tile in used_tiles:
-		var new_cell
+			if tile == AIR_TILE:
+				continue
+			elif tile == GROUND_TILE:
+				new_cell = normal_cell.instance()
+			elif tile == SPAWN_TILE:
+				_reset_player_spawn(Vector2(x, y))
+				new_cell = normal_cell.instance()
+			elif tile == END_TILE:
+				new_cell = level_end_cell.instance()
 
-		if tile == level_end_tile:
-			new_cell = level_end_cell.instance()
-		else:
-			new_cell = normal_cell.instance()
+			if new_cell == null:
+				continue
 
-		$Map.add_child(new_cell)
-		new_cell.transform.origin = Vector3(tile.x * GRID_SIZE, 0, tile.y * GRID_SIZE)
-		current_cells.append(new_cell)
+			$Map.add_child(new_cell)
+			new_cell.transform.origin = Vector3(x * GRID_SIZE, 0, y * GRID_SIZE)
+			current_cells.append(new_cell)
 
 	for c_cell in current_cells:
-		c_cell.update_faces(used_tiles, GRID_SIZE)
+		c_cell.update_faces(map, GRID_SIZE, AIR_TILE)
 	
 func _spawn_player():
 	if player == null:
